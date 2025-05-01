@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class MinMaxSum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for the number of integers
+        System.out.print("How many numbers will you enter? ");
+        int count = scanner.nextInt();
+
+        // Ensure the count is at least 1
+        if (count < 1) {
+            System.out.println("You must enter at least one number.");
+            return;
+        }
+
+        // Initialize min and max with the first input
+        System.out.print("Enter number 1: ");
+        int num = scanner.nextInt();
+        int min = num;
+        int max = num;
+
+        // Read the rest of the numbers
+        for (int i = 2; i <= count; i++) {
+            System.out.print("Enter number " + i + ": ");
+            num = scanner.nextInt();
+
+            if (num < min) {
+                min = num;
+            }
+
+            if (num > max) {
+                max = num;
+            }
+        }
+
+        int sum = min + max;
+
+        // Display results
+        System.out.println("Minimum value: " + min);
+        System.out.println("Maximum value: " + max);
+        System.out.println("Sum of min and max: " + sum);
+
+        scanner.close();
+    }
+}
